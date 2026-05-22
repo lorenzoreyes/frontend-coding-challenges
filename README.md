@@ -81,6 +81,21 @@ For each bug you find, include a brief comment or commit message explaining the 
 - Bug identification and fix quality
 - Code organization and separation of concerns
 
+## My logic applied
+
+(1) There are 437 from all characters call, only 25 have imgs and the rest were being discarded.
+(2) Provide a logic to supply a provisory profile image (House assigned image and if not Gryffindor). Consistency same image style used.
+Example Albus Dumbledore was being ignored as the character has no image.
+(3) Majority characters are neither students nor staff. Under current logic they were discarded, now they are shown.
+(4) DOUBT: Following Figma Design the house filter does not work, all the characters are shown without that filter, 
+follow the logic and assigned provisory images if missing according their houses.
+HINT: I commented on src/lib/api/characters.ts OLD VERSION that filters by house, also discarding characters with house: "",
+(5) Added router-link to character cards to facilitate navigation.
+(6) Change route params to be characterName instead of characterId for convenience, use a slugify helper.
+
+NO TIME TO PERFORM STORE MANAGEMENT OF FAVOURITES, pass the time limit.
+
+
 ## How to Submit
 
 Push your work to your fork and send us the link to the repository.

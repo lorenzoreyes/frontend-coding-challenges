@@ -5,13 +5,14 @@ import { Character } from "@lib/constants/characters";
 
 export const useCharacters = () => {
   const { preferredHouse } = useAppStore();
+
   const { data, ...rest } = useQuery<Character[]>({
-    queryKey: ["characters"],
-    queryFn: () => fetchCharacters(preferredHouse),
+    queryKey: ["characters", preferredHouse],
+    queryFn: () => fetchCharacters(),
     staleTime: Infinity,
   });
 
-  const characters = data?.filter((character) => character.image) || [];
+  const characters = data || [];
 
   return {
     characters,
